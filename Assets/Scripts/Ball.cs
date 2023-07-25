@@ -6,8 +6,12 @@ namespace Arkanoid
     {
         #region Variables
 
-        public Rigidbody2D Rb;
-        public Vector2 StartDirection;
+        [SerializeField] private Platform _platform;
+        [SerializeField] private Rigidbody2D _rb;
+        [SerializeField] private Vector2 _startVelocity;
+
+        private bool _isStarted;
+        private Vector3 _offset;
 
         #endregion
 
@@ -15,7 +19,39 @@ namespace Arkanoid
 
         private void Start()
         {
-            Rb.velocity = StartDirection;
+            _offset = transform.position - _platform.transform.position;
+        }
+
+        private void Update()
+        {
+            if (_isStarted)
+            {
+                return;
+            }
+
+            MoveWithPad();
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartBall();
+            }
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private void MoveWithPad()
+        {
+            Vector3 platformPosition = _platform.transform.position;
+            platformPosition += _offset;
+            transform.position = platformPosition;
+        }
+
+        private void StartBall()
+        {
+            _isStarted = true;
+            _rb.velocity = _startVelocity;
         }
 
         #endregion
