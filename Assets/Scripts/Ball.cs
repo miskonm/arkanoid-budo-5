@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Arkanoid
@@ -34,6 +35,19 @@ namespace Arkanoid
             if (Input.GetMouseButtonDown(0))
             {
                 StartBall();
+            }
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.cyan;
+            if (!_isStarted)
+            {
+                Gizmos.DrawLine(transform.position, transform.position + (Vector3)_startVelocity);
+            }
+            else
+            {
+                Gizmos.DrawLine(transform.position, transform.position + (Vector3)_rb.velocity);
             }
         }
 
