@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2851459894784047604}
-  - component: {fileID: 7535671831206024185}
   - component: {fileID: 481968848390947928}
   - component: {fileID: 7715699994219413404}
   m_Layer: 0
-  m_Name: StoneBlock
+  m_Name: ImmortalStoneBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,22 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7535671831206024185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7865965760779965332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61db63797b24f31b1fa5b7177001f97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 481968848390947928}
-  _score: 10
-  _hp: 1
-  _isInvisible: 0
 --- !u!212 &481968848390947928
 SpriteRenderer:
   m_ObjectHideFlags: 0

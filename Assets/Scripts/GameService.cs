@@ -1,8 +1,25 @@
+using System;
+using UnityEngine;
+
 namespace Arkanoid
 {
     public class GameService : SingletonMonoBehaviour<GameService>
     {
+        #region Variables
+
+        [SerializeField] private int _startHp = 3;
+
+        #endregion
+
+        #region Events
+
+        public event Action OnHpOver;
+
+        #endregion
+
         #region Properties
+
+        public int Hp { get; private set; }
 
         public int Score { get; private set; }
 
@@ -12,6 +29,7 @@ namespace Arkanoid
 
         private void Start()
         {
+            Hp = _startHp;
             LevelService.Instance.OnAllBlocksDestroyed += OnAllBlocksDestroyed;
         }
 
@@ -27,6 +45,22 @@ namespace Arkanoid
         public void AddScore(int value)
         {
             Score += value;
+        }
+
+        public void DecrementHp()
+        {
+            Hp--;
+
+            if (Hp <= 0)
+            {
+                OnHpOver?.Invoke();
+            }
+        }
+
+        public void ResetBall()
+        {
+            Ball ball = FindObjectOfType<Ball>();
+            ball.Reset();
         }
 
         #endregion

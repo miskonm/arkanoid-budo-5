@@ -8,6 +8,7 @@ namespace Arkanoid
         #region Variables
 
         [SerializeField] private TMP_Text _scoreLabel;
+        [SerializeField] private TMP_Text _hpLabel;
 
         #endregion
 
@@ -25,6 +26,7 @@ namespace Arkanoid
         private void UpdateScore()
         {
             _scoreLabel.text = $"Score: {GameService.Instance.Score}";
+            _hpLabel.text = $"Hp: {GameService.Instance.Hp}";
         }
 
         #endregion

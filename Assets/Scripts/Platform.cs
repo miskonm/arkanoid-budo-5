@@ -8,6 +8,11 @@ namespace Arkanoid
 
         private void Update()
         {
+            if (PauseService.Instance.IsPaused)
+            {
+                return;
+            }
+
             MoveWithMouse();
         }
 

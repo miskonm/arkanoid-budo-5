@@ -17,6 +17,12 @@ namespace Arkanoid
 
         #region Unity lifecycle
 
+        public void Reset()
+        {
+            _isStarted = false;
+            _rb.velocity = Vector2.zero;
+        }
+
         private void Start()
         {
             _offset = transform.position - _platform.transform.position;
