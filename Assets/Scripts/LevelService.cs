@@ -29,6 +29,7 @@ namespace Arkanoid
 
         private Block[] GetAllAliveBlocks()
         {
+            // TODO: Nikita Replace FindObjectsOfType with better code
             return FindObjectsOfType<Block>();
         }
 

@@ -6,7 +6,11 @@ namespace Arkanoid
     public class GameService : SingletonMonoBehaviour<GameService>
     {
         #region Variables
-
+        
+        [Header("Auto Play")]
+        [SerializeField] private bool _needAutoPlay;
+        
+        [Header("Configs")]
         [SerializeField] private int _startHp = 3;
 
         #endregion
@@ -22,6 +26,8 @@ namespace Arkanoid
         public int Hp { get; private set; }
 
         public int Score { get; private set; }
+
+        public bool NeedAutoPlay => _needAutoPlay;
 
         #endregion
 
@@ -60,7 +66,7 @@ namespace Arkanoid
         public void ResetBall()
         {
             Ball ball = FindObjectOfType<Ball>();
-            ball.Reset();
+            ball.ResetBall();
         }
 
         #endregion
