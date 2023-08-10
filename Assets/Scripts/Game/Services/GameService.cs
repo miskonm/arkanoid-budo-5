@@ -50,9 +50,9 @@ namespace Arkanoid.Game.Services
 
         #region Public methods
 
-        public void AddScore(int value)
+        public void ChangeScore(int value)
         {
-            Score += value;
+            Score = Mathf.Max(0, Score + value);
         }
 
         public void DecrementHp()

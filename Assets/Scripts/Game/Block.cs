@@ -71,7 +71,7 @@ namespace Arkanoid.Game
 
         private void PerformDestroyActions()
         {
-            GameService.Instance.AddScore(_score);
+            GameService.Instance.ChangeScore(_score);
             Destroy(gameObject);
             CreatePickUp();
         }
