@@ -1,7 +1,8 @@
+using Arkanoid.Game.Services;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Arkanoid
+namespace Arkanoid.Ui
 {
     public class PauseScreen : MonoBehaviour
     {

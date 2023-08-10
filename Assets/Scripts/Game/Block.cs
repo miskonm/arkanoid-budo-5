@@ -1,6 +1,8 @@
+using Arkanoid.Game.Services;
+using Arkanoid.Utility;
 using UnityEngine;
 
-namespace Arkanoid
+namespace Arkanoid.Game
 {
     public class Block : MonoBehaviour
     {
@@ -13,6 +15,9 @@ namespace Arkanoid
         [SerializeField] private int _score;
         [SerializeField] private int _hp = 1;
         [SerializeField] private bool _isInvisible;
+
+        [Header("Pick Up")]
+        [SerializeField] private PickUp.PickUp _pickUpPrefab;
 
         #endregion
 
@@ -49,9 +54,19 @@ namespace Arkanoid
                 return;
             }
 
-            GameService.Instance.AddScore(_score);
+            PerformDestroyActions();
+        }
 
+        private void CreatePickUp()
+        {
+            Instantiate(_pickUpPrefab, transform.position, Quaternion.identity);
+        }
+
+        private void PerformDestroyActions()
+        {
+            GameService.Instance.AddScore(_score);
             Destroy(gameObject);
+            CreatePickUp();
         }
 
         private bool TryUpdateInvisibility()

@@ -2523,7 +2523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6518024760647224324, guid: 3162e6a88c04844ea8f84f1c18d96ca6, type: 3}
       propertyPath: _needAutoPlay
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6823376981365552761, guid: 3162e6a88c04844ea8f84f1c18d96ca6, type: 3}
       propertyPath: m_RootOrder

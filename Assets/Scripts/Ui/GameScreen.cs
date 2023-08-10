@@ -1,7 +1,8 @@
+using Arkanoid.Game.Services;
 using TMPro;
 using UnityEngine;
 
-namespace Arkanoid
+namespace Arkanoid.Ui
 {
     public class GameScreen : MonoBehaviour
     {
