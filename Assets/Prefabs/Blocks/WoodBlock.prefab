@@ -50,7 +50,7 @@ MonoBehaviour:
   _score: 10
   _hp: 1
   _isInvisible: 0
-  _pickUpPrefab: {fileID: 4615394165201528098, guid: 3eadb982c25634f319d9b16ac99c7c7e, type: 3}
+  _pickUpPrefab: {fileID: 5881148928414141996, guid: 7ce89be1d68e742ecac5ec0ba675957d, type: 3}
 --- !u!212 &416575465542274328
 SpriteRenderer:
   m_ObjectHideFlags: 0

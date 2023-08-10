@@ -1,3 +1,4 @@
+using Arkanoid.Game.PickUps;
 using Arkanoid.Game.Services;
 using Arkanoid.Utility;
 using UnityEngine;
@@ -17,7 +18,9 @@ namespace Arkanoid.Game
         [SerializeField] private bool _isInvisible;
 
         [Header("Pick Up")]
-        [SerializeField] private PickUp.PickUp _pickUpPrefab;
+        [Range(0, 100)]
+        [SerializeField] private int _pickUpDropChance = 50;
+        [SerializeField] private PickUp _pickUpPrefab;
 
         #endregion
 
@@ -59,7 +62,11 @@ namespace Arkanoid.Game
 
         private void CreatePickUp()
         {
-            Instantiate(_pickUpPrefab, transform.position, Quaternion.identity);
+            int chance = Random.Range(0, 101);
+            if (_pickUpDropChance >= chance)
+            {
+                Instantiate(_pickUpPrefab, transform.position, Quaternion.identity);
+            }
         }
 
         private void PerformDestroyActions()
