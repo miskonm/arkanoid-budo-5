@@ -18,6 +18,8 @@ namespace Arkanoid.Game.Blocks
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, _explosiveRadius);
+            
+            
         }
 
         #endregion
@@ -26,6 +28,8 @@ namespace Arkanoid.Game.Blocks
 
         protected override void OnDestroyedActions()
         {
+            
+            
             base.OnDestroyedActions();
 
             // TODO: Vfx
@@ -39,7 +43,8 @@ namespace Arkanoid.Game.Blocks
                 }
             }
             
-            
+            GameObject o = colliders[0].gameObject;
+            Debug.Log($"");
         }
 
         #endregion
