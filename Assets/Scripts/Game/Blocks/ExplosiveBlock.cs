@@ -43,6 +43,7 @@ namespace Arkanoid.Game.Blocks
                 }
             }
             
+            GameObject o = colliders[0].gameObject;
             Debug.Log($"");
         }
 
