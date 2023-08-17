@@ -2521,6 +2521,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameServicesContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 2077467466385382803, guid: 3162e6a88c04844ea8f84f1c18d96ca6, type: 3}
+      propertyPath: _pickUpPrefabs.Array.data[0].SpawnWeight
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077467466385382803, guid: 3162e6a88c04844ea8f84f1c18d96ca6, type: 3}
+      propertyPath: _pickUpPrefabs.Array.data[1].SpawnWeight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077467466385382803, guid: 3162e6a88c04844ea8f84f1c18d96ca6, type: 3}
+      propertyPath: _pickUpPrefabs.Array.data[0].PickUpPrefab
+      value: 
+      objectReference: {fileID: 5881148928414141996, guid: 402cd233f829142acab2dcd96b264222, type: 3}
+    - target: {fileID: 2077467466385382803, guid: 3162e6a88c04844ea8f84f1c18d96ca6, type: 3}
+      propertyPath: _pickUpPrefabs.Array.data[1].PickUpPrefab
+      value: 
+      objectReference: {fileID: 5881148928414141996, guid: 7ce89be1d68e742ecac5ec0ba675957d, type: 3}
     - target: {fileID: 6518024760647224324, guid: 3162e6a88c04844ea8f84f1c18d96ca6, type: 3}
       propertyPath: _needAutoPlay
       value: 0
