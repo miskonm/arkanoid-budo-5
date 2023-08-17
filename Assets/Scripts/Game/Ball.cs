@@ -87,6 +87,8 @@ namespace Arkanoid.Game
             clone._isStarted = _isStarted;
             clone._offset = _offset;
             clone._rb.velocity = _rb.velocity;
+            
+            
 
             return clone;
         }
