@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1959471964345673355}
   - component: {fileID: 4399010906685841967}
   - component: {fileID: 6250786367690501755}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RemoveScorePickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

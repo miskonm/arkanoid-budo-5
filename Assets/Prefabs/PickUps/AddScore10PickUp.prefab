@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3653473909762791400}
   - component: {fileID: 6615957072610485752}
   - component: {fileID: 5881148928414141996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AddScore10PickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

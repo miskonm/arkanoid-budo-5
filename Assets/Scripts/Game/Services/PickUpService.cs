@@ -18,7 +18,7 @@ namespace Arkanoid.Game.Services
 
         #region Public methods
 
-        public void CreatePickUp()
+        public void CreatePickUp(Vector3 position)
         {
             if (_pickUps == null || _pickUps.Length == 0)
             {
@@ -28,7 +28,7 @@ namespace Arkanoid.Game.Services
             int chance = Random.Range(0, 101);
             if (_pickUpDropChance >= chance)
             {
-                InstantiateRandomPickUp();
+                InstantiateRandomPickUp(position);
             }
         }
 
@@ -36,7 +36,7 @@ namespace Arkanoid.Game.Services
 
         #region Private methods
 
-        private void InstantiateRandomPickUp()
+        private void InstantiateRandomPickUp(Vector3 position)
         {
             int weightSum = 0;
             foreach (PickUpSpawnData spawnData in _pickUps)
@@ -44,7 +44,7 @@ namespace Arkanoid.Game.Services
                 weightSum += spawnData.SpawnWeight;
             }
 
-            int randomWeight = Random.Range(0, weightSum);
+            int randomWeight = Random.Range(0, weightSum + 1);
             int selectedWeight = 0;
 
             for (int i = 0; i < _pickUps.Length; i++)
@@ -54,7 +54,7 @@ namespace Arkanoid.Game.Services
 
                 if (selectedWeight >= randomWeight)
                 {
-                    Instantiate(spawnData.PickUpPrefab, transform.position, Quaternion.identity);
+                    Instantiate(spawnData.PickUpPrefab, position, Quaternion.identity);
 
                     return;
                 }

@@ -1,8 +1,9 @@
+using System;
 using Arkanoid.Game.Services;
 using Arkanoid.Utility;
 using UnityEngine;
 
-namespace Arkanoid.Game
+namespace Arkanoid.Game.Blocks
 {
     public class Block : MonoBehaviour
     {
@@ -18,20 +19,48 @@ namespace Arkanoid.Game
 
         #endregion
 
+        #region Events
+
+        public static event Action<Block> OnCreated;
+        public static event Action<Block> OnDestroyed;
+
+        #endregion
+
         #region Unity lifecycle
 
         private void Start()
         {
+            OnCreated?.Invoke(this);
             if (_isInvisible)
             {
                 _spriteRenderer.SetAlpha(0);
             }
         }
 
+        private void OnDestroy()
+        {
+            OnDestroyed?.Invoke(this);
+        }
+
         private void OnCollisionEnter2D(Collision2D other)
         {
             ApplyHit();
         }
+
+        #endregion
+
+        #region Public methods
+
+        public void ForceDestroy()
+        {
+            PerformDestroyActions();
+        }
+
+        #endregion
+
+        #region Protected methods
+
+        protected virtual void OnDestroyedActions() { }
 
         #endregion
 
@@ -58,7 +87,11 @@ namespace Arkanoid.Game
         {
             GameService.Instance.ChangeScore(_score);
             Destroy(gameObject);
-            PickUpService.Instance.CreatePickUp();
+            PickUpService.Instance.CreatePickUp(transform.position);
+            // TODO: Vfx
+            // TODO: Sound
+            // TODO: Some base logic
+            OnDestroyedActions();
         }
 
         private bool TryUpdateInvisibility()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2851459894784047604}
   - component: {fileID: 481968848390947928}
   - component: {fileID: 7715699994219413404}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ImmortalStoneBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

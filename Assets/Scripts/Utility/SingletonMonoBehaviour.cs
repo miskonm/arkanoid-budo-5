@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Arkanoid.Utility
 {
-    public class SingletonMonoBehaviour<T> : MonoBehaviour 
+    public class SingletonMonoBehaviour<T> : MonoBehaviour
     {
         #region Properties
 
@@ -23,7 +23,15 @@ namespace Arkanoid.Utility
             Instance = gameObject.GetComponent<T>();
             transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
+
+            OnAwake();
         }
+
+        #endregion
+
+        #region Protected methods
+
+        protected virtual void OnAwake() { }
 
         #endregion
     }

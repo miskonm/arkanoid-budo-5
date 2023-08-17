@@ -1,5 +1,7 @@
+using System;
 using Arkanoid.Game.Services;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Arkanoid.Game
 {
@@ -16,13 +18,30 @@ namespace Arkanoid.Game
 
         #endregion
 
+        #region Events
+
+        public static event Action<Ball> OnCreated;
+        public static event Action<Ball> OnDestroyed;
+
+        #endregion
+
         #region Unity lifecycle
 
-        private void Start()
+        private void Awake()
         {
             _offset = transform.position - _platform.transform.position;
 
             PerformStartActions();
+
+            OnCreated?.Invoke(this);
+        }
+
+        private void Start()
+        {
+            if (GameService.Instance.NeedAutoPlay)
+            {
+                StartBall();
+            }
         }
 
         private void Update()
@@ -38,6 +57,11 @@ namespace Arkanoid.Game
             {
                 StartBall();
             }
+        }
+
+        private void OnDestroy()
+        {
+            OnDestroyed?.Invoke(this);
         }
 
         private void OnDrawGizmos()
@@ -56,6 +80,23 @@ namespace Arkanoid.Game
         #endregion
 
         #region Public methods
+
+        public Ball Clone()
+        {
+            Ball clone = Instantiate(this, transform.position, Quaternion.identity);
+            clone._isStarted = _isStarted;
+            clone._offset = _offset;
+            clone._rb.velocity = _rb.velocity;
+
+            return clone;
+        }
+
+        public void RandomizeDirection()
+        {
+            Vector2 randomDirection = Random.insideUnitCircle.normalized;
+            float currentSpeed = _rb.velocity.magnitude;
+            _rb.velocity = randomDirection * currentSpeed;
+        }
 
         public void ResetBall()
         {
@@ -78,11 +119,6 @@ namespace Arkanoid.Game
         {
             _isStarted = false;
             _rb.velocity = Vector2.zero;
-
-            if (GameService.Instance.NeedAutoPlay)
-            {
-                StartBall();
-            }
         }
 
         private void StartBall()
