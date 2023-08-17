@@ -38,6 +38,8 @@ namespace Arkanoid.Game.Blocks
                     block.ForceDestroy();
                 }
             }
+            
+            
         }
 
         #endregion
