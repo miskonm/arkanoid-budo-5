@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7715699994219413404}
   m_Layer: 10
   m_Name: ExplosiveBlock
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,10 @@ MonoBehaviour:
   _score: 10
   _hp: 1
   _isInvisible: 0
+  _explosiveRadius: 1
+  _blockMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &481968848390947928
 SpriteRenderer:
   m_ObjectHideFlags: 0

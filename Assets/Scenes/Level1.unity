@@ -2687,7 +2687,7 @@ PrefabInstance:
     - target: {fileID: 2077467466385382803, guid: 3162e6a88c04844ea8f84f1c18d96ca6, type: 3}
       propertyPath: _pickUps.Array.data[0].PickUpPrefab
       value: 
-      objectReference: {fileID: 1498301023848101487, guid: cc2706ae2b4d643c3828c966f547b980, type: 3}
+      objectReference: {fileID: 5016771415972104888, guid: f8a7e1b4d209f427db0a555ee228af41, type: 3}
     - target: {fileID: 2077467466385382803, guid: 3162e6a88c04844ea8f84f1c18d96ca6, type: 3}
       propertyPath: _pickUpPrefabs.Array.data[0].SpawnWeight
       value: 80

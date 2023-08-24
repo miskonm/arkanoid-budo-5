@@ -27,9 +27,6 @@ namespace Arkanoid.Game.PickUps
                     clone.RandomizeDirection();
                 }
             }
-            
-            
-            
         }
 
         #endregion
